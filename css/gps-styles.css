@@ -1,0 +1,133 @@
+body {
+  height: 100%;
+  overflow-y: hidden;
+  background-color: #CCC;
+  margin: 0px;
+  font-size: 14px;
+  font-family: "sans-serif","arial","times new roman";
+}
+
+.content-header {
+  padding: 1% 0;
+  padding-left: 2%;
+  width: 98%;
+  background-color: #FFF;
+  margin-bottom: 42px;
+  z-index: 1;
+  position: fixed;
+}
+
+.block-landing {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 80%;
+  height: 700px;
+  padding-top: 5%;
+}
+
+.arrow-block-landing {
+  margin-right: 20%;
+  float: right;
+  width: 1px;
+  border-left: 250px solid transparent;
+  border-top: 350px solid #FFF;
+  border-bottom: 350px solid #FFF;
+}
+
+.content-main {
+  background: rgba(25, 25, 25, .7);
+  border: none;
+  color: #FFF;
+  width: 32%;
+  padding: 26px 0;
+  padding-left: 5%;
+}
+
+.content-main p {
+  font-size: 1.5em;
+}
+
+.arrow-content-main {
+  margin-right: 35.55%;
+  float: right;
+  border-left: 100px solid rgba(25, 25, 25, .7);
+  border-top: 189px solid transparent;
+  border-bottom: 188px solid transparent;
+}
+
+.arrow-content-main::after {
+  clear: right;
+}
+
+/* slide - handler */
+article {
+  position: relative;
+  z-index: 2;
+  color: #FFF;
+  padding: 2% 2%;
+  width: 30%;
+}
+.square-efect{
+  position: relative;
+  margin-top: -35%;
+  width: 700px;
+  height: 700px;
+  background-color: #2A979A;
+  ms-transform: rotate(7deg); /* IE 9 */
+  -webkit-transform: rotate(15deg); /* Chrome, Safari, Opera */
+  transform: rotate(40deg);
+}
+
+/*Effects*/
+@-webkit-keyframes spin{
+  0%   { -webkit-transform: rotate(-180deg) translate(0px, 0px);}
+  100% { -webkit-transform: rotate(180deg) translate(10px, 75px);}
+}
+
+.slide-block {
+  width: 100%;
+}
+/* reste headers */
+
+h1 {
+  font-size: 4em;
+}
+
+
+/*Footer*/
+
+footer {
+  position:fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  background: rgba(25, 25, 25, .7);
+  color: #FFF;
+}
+
+.time-line {
+  text-align: center;
+}
+
+.block-line-pipe {
+  color: #FFF;
+  font-weight: bold;
+  font-size: .8em;
+  margin-top: -7px;
+}
+
+.block-line-pipe .circle{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    border-radius:50px;
+    background:#FFF;
+ }
+ 
+ .active-line-pipe {
+  color: #2A979A;
+ }
+ .active-circle {
+  background-color: #2A979A !important;
+ }

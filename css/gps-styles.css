@@ -83,12 +83,19 @@ body {
 }
 
 @media (max-width: 1450px) {
+  body {
+    font-size: 11px
+  }
   #square-efect {
     margin-top: -35%;
   }
 }
 
 @media (max-width: 960px) {
+  body {
+    font-size: 10px
+  }
+
   #square-efect {
     margin-top: -45%;
   }
@@ -213,25 +220,47 @@ footer {
   text-align: center;
 }
 
+#line-mark {
+  height: 1px;
+  width: 2px;
+  border-right: 2px solid #FFF;
+  position: absolute;
+  top: -115px;
+  display: none;
+}
+
+#line-mark .circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50px;
+  border: 2px solid #FFF;
+  margin-top: -10px;
+  margin-left: -3px;
+}
+
 .block-line-pipe {
   color: #FFF;
   font-weight: bold;
-  font-size: .8em;
-  margin-top: -7px;
+  font-size: .85em;
+  margin-top: -6px;
 }
 
 .block-line-pipe .circle {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  margin-top: -5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50px;
-  background: #FFF;
+  border:2px solid #FFF;
 }
 
-.active-line-pipe {
+.block-line-pipe .active-line-pipe {
   color: #2A979A;
 }
-
-.active-circle {
-  background-color: #2A979A !important;
+.block-line-pipe .active-circle-prev {
+  border-color: #2A979A;
+}
+.block-line-pipe .active-circle {
+  background-color: #FFF;
+  border-color: #FFF;
 }

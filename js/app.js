@@ -1,89 +1,110 @@
 var timeLineEffect = function($element) {
+
+	$('.active-circle').removeClass('active-circle');
+
     $element.addClass('active-circle')
       .prevAll('span').addClass('active-line-pipe')
-      .prevAll('.block-line-pipe .circle').addClass('active-circle');
+      .prevAll('.block-line-pipe .circle').addClass('active-circle-prev');
 
-    $element.nextAll('span').removeClass('active-line-pipe')
-      .nextAll('.block-line-pipe .circle').removeClass('active-circle');
+    $element.nextAll('span').removeClass('active-line-pipe');
+    $element.nextAll('.block-line-pipe .circle').removeClass('active-circle-prev');
+
   },
   Movie = function($element) {
-    var left = $element.offset().left,
+    var leftElement = $element.offset().left,
+      topElement = $element.offset().top,
       frameClass = "",
       articleFrame = "",
       $slideBlock = $('.slide-block'),
       goToFrame1 = function() {
         $slideBlock.animate({
-          'margin-left': left - 160
+          'margin-left': leftElement - 160
         });
         frameClass = 'square-frame1';
         setArticleValues({
           'title':'01.<br>Abastecimiento',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('100');
       },
       goToFrame2 = function() {
         $slideBlock.animate({
-          'margin-left': left - 150
+          'margin-left': leftElement - 150
         });
         frameClass = 'square-frame2';
         setArticleValues({
           'title':'02.<br>Almacenaje',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('150');
       },
       goToFrame3 = function() {
         $slideBlock.animate({
-          'margin-left': left - 80
+          'margin-left': leftElement - 80
         });
         frameClass = 'square-frame3';
         setArticleValues({
           'title':'03.<br>Crossdocking',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('220');
       },
       goToFrame4 = function() {
         $slideBlock.animate({
-          'margin-left': left - 20
+          'margin-left': leftElement - 20
         });
         frameClass = 'square-frame4';
         setArticleValues({
           'title':'04.<br>Transporte Nacional',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('300');
       },
       goToFrame5 = function() {
         $slideBlock.animate({
-          'margin-left': left - 150
+          'margin-left': leftElement - 150
         });
         frameClass = 'square-frame5';
         setArticleValues({
           'title':'05.<br>Transporte Drop & Hook',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('80');
       },
       goToFrame6 = function() {
         $slideBlock.animate({
-          'margin-left': left - 150
+          'margin-left': leftElement - 150
         });
         frameClass = 'square-frame6';
         setArticleValues({
           'title':'06.<br>Distribución',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('100');
       },
       goToFrame7 = function() {
         $slideBlock.animate({
-          'margin-left': left - 250
+          'margin-left': leftElement - 250
         });
         frameClass = 'square-frame7';
         setArticleValues({
           'title':'07.<br>Logisitica Segura',
           'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
+        setLineMark('120');
       },
       setArticleValues = function (arg) {
         $('.slide-block').find('h1').html(arg.title);
         $('.slide-block').find('p').html(arg.body)
+      },
+      setLineMark = function (heightLine) {
+		$('#line-mark').fadeIn(function () {
+	    	$(this).animate({ 
+	    		'height' : heightLine + 'px', 
+	    		'top' : '-' + heightLine + '%',
+	    		'left': leftElement + 3	 
+	    	});
+	    });
       };
 
     switch (parseInt($element.attr('data-frame'))) {

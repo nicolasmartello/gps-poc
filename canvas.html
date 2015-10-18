@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas poc</title>
+</head>
+<body>
+<canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(188, 130);
+      context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+      context.lineWidth = 10;
+
+      // line color
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>
+</body>
+</html>

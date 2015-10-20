@@ -1,6 +1,6 @@
 var timeLineEffect = function($element) {
 
-	$('.active-circle').removeClass('active-circle');
+    $('.active-circle').removeClass('active-circle');
 
     $element.addClass('active-circle')
       .prevAll('span').addClass('active-line-pipe')
@@ -17,13 +17,14 @@ var timeLineEffect = function($element) {
       articleFrame = "",
       $slideBlock = $('.slide-block'),
       goToFrame1 = function() {
+        moveBackImage(1);
         $slideBlock.animate({
           'margin-left': leftElement - 160
         });
         frameClass = 'square-frame1';
         setArticleValues({
-          'title':'01.<br>Abastecimiento',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '01.<br>Abastecimiento',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('100');
       },
@@ -33,10 +34,11 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame2';
         setArticleValues({
-          'title':'02.<br>Almacenaje',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '02.<br>Almacenaje',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('150');
+        moveBackImage(2);
       },
       goToFrame3 = function() {
         $slideBlock.animate({
@@ -44,10 +46,11 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame3';
         setArticleValues({
-          'title':'03.<br>Crossdocking',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '03.<br>Crossdocking',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('220');
+        moveBackImage(3);
       },
       goToFrame4 = function() {
         $slideBlock.animate({
@@ -55,10 +58,11 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame4';
         setArticleValues({
-          'title':'04.<br>Transporte Nacional',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '04.<br>Transporte Nacional',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('300');
+        moveBackImage(4);
       },
       goToFrame5 = function() {
         $slideBlock.animate({
@@ -66,10 +70,11 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame5';
         setArticleValues({
-          'title':'05.<br>Transporte Drop & Hook',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '05.<br>Transporte Drop & Hook',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('80');
+        moveBackImage(5);
       },
       goToFrame6 = function() {
         $slideBlock.animate({
@@ -77,10 +82,11 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame6';
         setArticleValues({
-          'title':'06.<br>Distribución',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '06.<br>Distribución',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('100');
+        moveBackImage(6);
       },
       goToFrame7 = function() {
         $slideBlock.animate({
@@ -88,23 +94,38 @@ var timeLineEffect = function($element) {
         });
         frameClass = 'square-frame7';
         setArticleValues({
-          'title':'07.<br>Logisitica Segura',
-          'body':'"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
+          'title': '07.<br>Logisitica Segura',
+          'body': '"En la mayor parte de las compañias, los aprovisionamientos consumen entre un 20% y 50% de los ingresos totales en mercadería y servicios"'
         });
         setLineMark('120');
+        moveBackImage(7);
       },
-      setArticleValues = function (arg) {
+      setArticleValues = function(arg) {
         $('.slide-block').find('h1').html(arg.title);
         $('.slide-block').find('p').html(arg.body)
       },
-      setLineMark = function (heightLine) {
-		$('#line-mark').fadeIn(function () {
-	    	$(this).animate({ 
-	    		'height' : heightLine + 'px', 
-	    		'top' : '-' + heightLine + '%',
-	    		'left': leftElement + 3	 
-	    	});
-	    });
+      setLineMark = function(heightLine) {
+        $('#line-mark').fadeIn(function() {
+          $(this).animate({
+            'height': heightLine + 'px',
+            'top': '-' + heightLine + '%',
+            'left': leftElement + 3
+          });
+        });
+      },
+      moveBackImage = function (index) {
+        var $element1 = $('#frame-image'+index),
+            $element2 = $('#frame-image'+ parseInt(index+1)),
+            top = $('#carousel-image').offset().top;
+
+        $('#carousel-image .block').css('left', - window.screen.width);
+        /* $element1.fadeIn('fast');
+         $element2.fadeIn('fast');*/
+
+         $element2.animate({'left': '50%', 'top': top });
+         $element1.animate({'left' : "-50%" });
+
+
       };
 
     switch (parseInt($element.attr('data-frame'))) {
@@ -143,5 +164,11 @@ $(document).ready(function() {
     Movie($(this));
 
   });
+
+ $( window ).resize( function () {
+
+    Movie($('.active-circle'));
+    timeLineEffect($('.active-circle'));
+ });
 
 });

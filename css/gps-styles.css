@@ -95,7 +95,9 @@ body {
   body {
     font-size: 10px
   }
-
+  .hidden-md {
+    display: none;
+  }
   #square-efect {
     margin-top: -45%;
   }
@@ -184,16 +186,27 @@ body {
 
 #carousel-image {
   position: absolute;
+  top: 5%;
   width: 100%;
-  height: auto;
+  height: 95%;
   z-index: 1;
   overflow-x: hidden;
+  overflow-y: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #carousel-image .block {
+  left: -100%;
   height: 100%;
   width: 100%;
-  display: inline-block;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#carousel-image #frame-image0 {
+  display: block;
 }
 
 
@@ -246,6 +259,7 @@ footer {
 }
 
 .block-line-pipe .circle {
+  cursor: pointer;
   display: inline-block;
   margin-top: -5px;
   width: 8px;
